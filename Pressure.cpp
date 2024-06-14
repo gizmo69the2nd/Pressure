@@ -36,12 +36,11 @@ void Pressure::Init()// Func. Initialize, set into setup
 
 float Pressure::Modo(float val___Analog)// PRESSURE SENSOR MODEL
 {
-    
     switch (Modelo___op)
     {
         
     case 0: // MXP5010
-         return ((((val___Analog/1023)*VFSO)-0.2)/0.45); // SENSOR TRANSFER FUNCTION OBTAINED FROM DATASHEET
+            return ((((val___Analog/1023)*VFSO)-0.2)/0.45); // SENSOR TRANSFER FUNCTION OBTAINED FROM DATASHEET
         break;
     case 1: // MXP5050 // SENSOR TRANSFER FUNCTION OBTAINED FROM DATASHEET
             return ((((val___Analog/1023)*VFSO)-0.2)/0.09); // INSERT TRANSFER FUNCTION IN THE PLACE OF "NULL"
@@ -51,7 +50,10 @@ float Pressure::Modo(float val___Analog)// PRESSURE SENSOR MODEL
         break;
     case 3: // MXP5050 // SENSOR TRANSFER FUNCTION OBTAINED FROM DATASHEET
             return ((((val___Analog/1023)*VFSO)-0.2)/0.004505); // INSERT TRANSFER FUNCTION IN THE PLACE OF "NULL"
-        break; // MPX5999D 
+        break;
+    case 4: // MXP5500 // SENSOR TRANSFER FUNCTION OBTAINED FROM DATASHEET // Offset = 0.2V //Sensitivity = 9mV/kPa = 0.009V/kPa  
+            return ((((val___Analog/1023)*VFSO)-0.2)/0.009); // INSERT TRANSFER FUNCTION IN THE PLACE OF "NULL"
+        break; 
     default:// MXP5010 //// ADD DEFINE IN .H FOR OTHER MODELS END INSERT FUNCTION TRANSFER IN CASE N+1
         return ((((val___Analog/1023)*VFSO)-0.2)/0.45);
         break;

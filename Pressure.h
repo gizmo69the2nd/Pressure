@@ -33,12 +33,13 @@ class Pressure
             float Get(uint8_t); // measure type
             float GetBulk(uint8_t, float); // get volume (time, area)
         private:
-            int va__nalog; //val sensor
+            int va__Analog; //val sensor
             float VFSO = 4.75; //default vsfo
             uint8_t Pin___An; //pin analog
             uint8_t Modelo___op; // save model sensor
             uint8_t last__time; // save last temp
             float Modo(float); // selected model
+            
 
 };
 #endif
