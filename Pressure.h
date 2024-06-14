@@ -17,6 +17,7 @@ class Pressure
         #define MPX5050 1
         #define MPX5700 2
         #define MPX5999 3
+        #define MPX5500 4
         //### relacionado à conversões
         #define KPA 0
         #define BAR 1
